@@ -1,0 +1,4 @@
+.*.swp
+user.abuild/
+target/
+aports/
