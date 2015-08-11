@@ -17,11 +17,15 @@ for some background about testing and signing packages.
 Setup
 -----
 
-TODO: docs about user.abuild/
+To sign packages you'll need a key pair. To generate a pair of keys for this
+purpose run:
 
 .. code:: sh
 
-    make builder
+    # builds an image and starts a container
+    make build
+    # generate keys
+    ~/bin/setup.sh
 
 
 Building a Package
@@ -55,7 +59,7 @@ Indexing and Signing
 Testing the Package
 -------------------
 
-TODO:
+.. code:: sh
 
- * edit /etc/apk/repositories to point at the repo
- * install the package
+    make test
+    apk add <package>@custom
