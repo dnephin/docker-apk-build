@@ -11,7 +11,7 @@ target:
 aports:
 	git clone git://dev.alpinelinux.org/aports
 
-.PHONY: aports_upadte
+.PHONY: aports_update
 aports_update: aports
 	GIT_DIR=aports/.git git fetch origin -p
 	GIT_DIR=aports/.git git pull origin master
