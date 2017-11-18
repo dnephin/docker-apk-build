@@ -13,7 +13,10 @@ RUN     mkdir -p /var/cache/distfiles && \
         echo "packager    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD     setup.sh /home/packager/bin/setup.sh
-# TODO: customize /etc/abuild.conf
+
+ARG PACKAGER
+RUN sed -i "s/#PACK.*/PACKAGER=\"$PACKAGER\"/g" /etc/abuild.conf
+RUN sed -i "s/#MAINTAINER/MAINTAINER/g" /etc/abuild.conf
 
 WORKDIR /work
 USER    packager

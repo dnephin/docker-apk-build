@@ -1,10 +1,13 @@
 
 BUILD_ID ?= ${USER}
-
+PACKAGER ?= "$(shell git config user.name) <$(shell git config user.email)>"
 
 .PHONY: builder
 builder:
-	docker build -t apk_builder:${BUILD_ID} builder/
+	docker build \
+		-t apk_builder:${BUILD_ID} \
+		--build-arg PACKAGER=${PACKAGER} \
+		builder/
 
 target:
 	mkdir -p target
