@@ -9,7 +9,7 @@ builder:
 target:
 	mkdir -p target
 aports:
-	git clone git://dev.alpinelinux.org/aports
+	git clone https://git.alpinelinux.org/aports
 
 .PHONY: aports_update
 aports_update: aports
